@@ -1,0 +1,18 @@
+redis:
+  volumes:
+    - "/data"
+  ports:
+    - "6379:6379"
+  expose:
+    - "6379"
+  image: redis:latest
+
+storm:
+  build: "."
+  volumes:
+    - ".:/usr/src/app"
+  environment:
+    REDIS_URL: "redis://172.17.42.1:6379"
+  links:
+    - redis:redis
+  command: bash -c "bundle install --local && ./bin/storm"

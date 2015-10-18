@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+
+root = File.expand_path('../..', __FILE__)
+require File.join(root, %w[lib storm])
+require 'logger'
+require 'redis'
+require 'net/http'
+
+# Put your code here
+logger = Logger.new(STDOUT)
+logger.level = Logger::WARN
+
+# logger.debug("Created logger")
+logger.info("Program started")
+# logger.warn("Nothing to do!")
+
+i = 0
+j = 0
+while 2 > 1 do
+  puts "hello storm redis"
+  ## logger.info("storm log")
+  j += 1
+  i += 1
+  logger.warn("storm log")
+  if i == 500
+    puts j
+    puts i
+    sleep 1
+    i = 0
+  end
+end
