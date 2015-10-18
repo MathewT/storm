@@ -23,6 +23,8 @@ Install
 
 * FIXME (sudo gem install, anything else)
 
+sudo apt-get install libgmp3-dev
+
 Author
 ------
 
